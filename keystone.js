@@ -20,8 +20,8 @@ keystone.init({
 	'view engine': 'jade',
 
 	'auto update': true,
-	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/endevcms',
-	'cloudinary config': 'cloudinary://695493484114853:WgUtCyrmjr2usz_b9xeIdxBbcYY@dcc1ioxla',
+	'mongo': CMONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/endevcms',
+	'cloudinary config': CLOUDINARY_URL || process.env.CLOUDINARY_URL,
 	'session': true,
 	'auth': true,
 	'user model': 'User',
