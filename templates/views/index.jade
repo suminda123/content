@@ -1,0 +1,55 @@
+extends ../layouts/default
+
+block content
+	.section.no-pad-bot(id="index-banner")
+		.container
+			br
+			h1.header.center.red-text.lighten-5.hide-on-small-only= home.maincontent.h1
+			.row.center
+				h5.header.col.s12.light= home.maincontent.h5
+			.row.left-align
+				p.no-pad-bot!= home.maincontent.content
+			.row.center
+				a.btn-large.waves-effect.waves-light.red.lighten-3(href="/" id="start-button") Get Started
+	.container
+		.section
+			.row
+				.col.s12.m4
+					.icon-block
+						h3.center.red-text.primarycolorlighten3
+							i.material-icons flash_on
+						h5.center= home.section1.h5
+						p.light!= home.section1.content
+				.col.s12.m4
+					.icon-block
+						h3.center.red-text.primarycolorlighten3
+							i.material-icons group
+						h5.center= home.section2.h5
+						p.light!= home.section2.content
+				.col.s12.m4
+					.icon-block
+						h3.center.red-text.primarycolorlighten3
+							i.material-icons settings
+						h5.center= home.section3.h5
+						p.light!= home.section3.content
+	.container
+		.row
+			h3.center.red-text.primarycolorlighten3= home.happyClientsHeader
+		.row
+			.carousel
+				if(happyClients)
+					each hclient in happyClients
+						a.carousel-item(href=hclient.website, title=hclient.title, target="_blank")
+							img(src=hclient._.logo.src(), alt=hclient.title)
+						a.carousel-item(href=hclient.website, title=hclient.title, target="_blank")
+							img(src=hclient._.logo.src(), alt=hclient.title)
+						a.carousel-item(href=hclient.website, title=hclient.title, target="_blank")
+							img(src=hclient._.logo.src(), alt=hclient.title)
+						a.carousel-item(href=hclient.website, title=hclient.title, target="_blank")
+							img(src=hclient._.logo.src(), alt=hclient.title)
+
+block page-js
+	script.
+		$(document).ready(function() {
+			$('.carousel').carousel();
+		});

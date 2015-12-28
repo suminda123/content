@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>Keystone Demo</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700" rel="stylesheet">
+    <link href="/styles/themes/Bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">KeystoneJS</a>
+        </div>
+        <div id="navbar-collapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/mydata">MyData</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">Themes <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="active"><a href="?theme=Bootstrap">Bootstrap</a></li>
+                        <li><a href="?theme=Cerulean">Cerulean</a></li>
+                        <li><a href="?theme=Cosmo">Cosmo</a></li>
+                        <li><a href="?theme=Cyborg">Cyborg</a></li>
+                        <li><a href="?theme=Darkly">Darkly</a></li>
+                        <li><a href="?theme=Flatly">Flatly</a></li>
+                        <li><a href="?theme=Journal">Journal</a></li>
+                        <li><a href="?theme=Lumen">Lumen</a></li>
+                        <li><a href="?theme=Paper">Paper</a></li>
+                        <li><a href="?theme=Readable">Readable</a></li>
+                        <li><a href="?theme=Sandstone">Sandstone</a></li>
+                        <li><a href="?theme=Simplex">Simplex</a></li>
+                        <li><a href="?theme=Slate">Slate</a></li>
+                        <li><a href="?theme=Spacelab">Spacelab</a></li>
+                        <li><a href="?theme=Superhero">Superhero</a></li>
+                        <li><a href="?theme=United">United</a></li>
+                        <li><a href="?theme=Yeti">Yeti</a></li>
+                    </ul>
+                </li>
+                <li><a href="/keystone/signin">Sign In</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div style="padding-left: 5vw; padding-right: 5vw;" class="jumbotron">
+        <h1>KeystoneJS Demo</h1>
+        <div class="lead">This site demonstrates common patterns in <a href='http://keystonejs.com', target='_blank'>KeystoneJS</a>.</div><a href="http://github.com/keystonejs/keystone-demo" target="_blank" title="View on GitHub" class="btn btn-lg btn-primary">View on GitHub</a><a href="http://www.keystonejs.com/docs" target="_blank" title="KeystoneJS Documentation" class="btn btn-lg btn-link">Read the Docs</a>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <h3><a href="/blog">Blog</a></h3>
+            <p>Posts have a key automatically generated from their name, and support short and extended versions of the content.</p>
+            <p>You can sign in using the demo account to contribute to the blog.</p>
+            <hr>
+            <h3><a href="/gallery">Gallery</a></h3>
+            <p>Example of how to set up a page that displays multiple image galleries.</p>
+            <p>Demonstrates usage of single and multi image fields and their resizing methods.</p>
+            <p>You can sign in using the demo account to create and manage image galleries, and upload additional images</p>
+            <hr>
+            <h3><a href="/contact">Enquiries</a></h3>
+            <p>Simple contact form that validates input and logs enquiries to the database.</p>
+            <p>You can sign in using the demo account to view the submitted enquiries.</p>
+            <hr>
+            <h3>Generating CSVs</h3>
+            <p>For an example of how to download a list in .csv format, see /routes/download/users.js.</p>
+            <p>It uses the excellent node-csv library.</p><a href="/download/users" class="btn btn-default">Download users.csv</a>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a href="/keystone/signin">Admin UI</a></h3>
+                </div>
+                <div class="panel-body">
+                    <p>Keystone includes session management and default sign-in and sign-out views.</p>
+                    <p>Sign in with the username <code>demo@keystonejs.com</code> and the password <code>demo</code></p><a href="/keystone/signin" class="btn btn-default">Sign in</a>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a href="/404">Error Handling</a></h3>
+                </div>
+                <div class="panel-body">
+                    <p>The 404 and 500 views demonstrate how to set up error handlers for your application.</p><a href="/hey-this-isnt-a-valid-url" class="btn btn-default">Test it</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 60px; padding-left: 10vw; padding-right: 10vw;" class="jumbotron text-center">
+        <h2>We'll handle the back end, you handle the front</h2>
+        <p>KeystoneJS isn't opinionated about how you design or build the front-end of your site. Use jQuery, Angular, React.js with LESS, SASS or css-modules and any node.js template language.</p>
+        <div>We've made this demo site with Bootstrap, Jade and LESS to show how simple it can be to get going, and included some themes from <a href="https://bootswatch.com/?ref=keystonejs" target="_blank">bootswatch</a>. Try them out by selecting below:</div>
+        <hr style="margin-bottom: 3em; margin-top: 3em;">
+        <ul class="nav nav-pills">
+            <li class="active"><a href="/?theme=Bootstrap">Bootstrap</a></li>
+            <li><a href="/?theme=Cerulean">Cerulean</a></li>
+            <li><a href="/?theme=Cosmo">Cosmo</a></li>
+            <li><a href="/?theme=Cyborg">Cyborg</a></li>
+            <li><a href="/?theme=Darkly">Darkly</a></li>
+            <li><a href="/?theme=Flatly">Flatly</a></li>
+            <li><a href="/?theme=Journal">Journal</a></li>
+            <li><a href="/?theme=Lumen">Lumen</a></li>
+            <li><a href="/?theme=Paper">Paper</a></li>
+            <li><a href="/?theme=Readable">Readable</a></li>
+            <li><a href="/?theme=Sandstone">Sandstone</a></li>
+            <li><a href="/?theme=Simplex">Simplex</a></li>
+            <li><a href="/?theme=Slate">Slate</a></li>
+            <li><a href="/?theme=Spacelab">Spacelab</a></li>
+            <li><a href="/?theme=Superhero">Superhero</a></li>
+            <li><a href="/?theme=United">United</a></li>
+            <li><a href="/?theme=Yeti">Yeti</a></li>
+        </ul>
+    </div>
+    <div class="site-footer">
+        <div class="container text-center">
+            <p>Copyright &copy; 2015 Jed Watson. All rights reserved.</p>
+            <p><a href="https://twitter.com/keystonejs" data-show-count="false" data-size="large" class="twitter-follow-button">Follow @keystonejs</a></p>
+        </div>
+    </div>
+</div>
+<script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+</script>
+<script src="/js/lib/jquery/jquery-1.10.2.min.js"></script>
+<script src="/js/lib/bootstrap/collapse.js"></script>
+<script src="/js/lib/bootstrap/dropdown.js"></script>
+<script>
+    $('body')[0].style.paddingTop = $('.navbar').height() + 30 + 'px';
+
+</script>
+</body>
+</html>

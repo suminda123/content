@@ -1,0 +1,126 @@
+include ../mixins/flash-messages
+
+doctype html
+html
+	head
+		if env === 'production'
+			script.
+				var _sf_startpt=(new Date()).getTime()
+		
+		meta(charset="utf-8")
+		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+		
+		title= title || 'Endev Software'
+		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+		//- Customise the stylesheet for your site by editing /public/styles/site.sass
+		link(href="/styles/site.css", rel="stylesheet")
+		
+		if user && user.canAccessKeystone
+			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+		
+		block css
+		block head
+	body
+		.container
+			.left-align.logodiv
+				a#logo-container.brand-logo(href='/') Endev
+			.right-align
+				a.hide-on-med-and-down(href='/') innovative | custom-built | software
+		nav.clearfix(role='navigation')
+			.nav-wrapper.container
+				ul.right.hide-on-med-and-down
+					each link in navLinks
+						li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label
+				ul#nav-mobile.side-nav
+					each link in navLinks
+						li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label
+					if user
+						li: a(href='/keystone') Admin UI
+						li: a(href='/keystone/signout') Sign Out
+					else
+						li: a(href='/keystone/signin') Sign In
+				a.button-collapse(href='#', data-activates='nav-mobile')
+					i.material-icons menu
+		.container
+			//- intro
+			block intro
+			//- messages
+			+flash-messages(messages)
+			//- content
+			block content
+			//- footer
+		footer.page-footer.red.primarycolorlighten2
+			.container
+				.row
+					.col.l6.s12
+						h5.white-text Company Bio
+						p.white-text Endev is about developing software solutions for business. While our specialist expertise is in custom software development, our focus is the bottom-line advantages our solutions deliver.
+					.col.l3.s12
+						h5.white-text Connect
+						ul
+							li
+								a.white-text(href="/") Home
+							li
+								a.white-text(href="/") About Us
+							li
+								a.white-text(href="/") Our Solutions
+							li
+								a.white-text(href="/") Portfolio
+							li
+								a.white-text(href="/") Jobs
+							li
+								a.white-text(href="/") Contact
+					.col.l3.s12
+						h5.white-text More About Endev
+						ul
+							li
+								a.white-text(href="/") Read our news
+							li
+								a.white-text(href="/") Work with us
+							li
+								a.white-text(href="/") Our process
+			.footer-copyright
+				.container Copyright &copy; 2011-2015 Endev Software Limited
+
+		
+		script.
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+		//- scripts
+		script(src='//code.jquery.com/jquery-1.11.3.min.js')
+		script(src='/js/lib/materialize/materialize.min.js')
+		script(src='/js/init.js')
+		//-script(src='/js/lib/bootstrap/dropdown.js')
+		//-script.
+		//-$('body')[0].style.paddingTop = $('.navbar').height() + 30 + 'px';
+	
+		if user && user.canAccessKeystone
+			script(src='/keystone/js/content/editor.js')
+			
+		block page-js
+		
+		if env === 'production'
+			script.
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+				ga('create', '#{ga_property}', '#{ga_domain}');
+				ga('send', 'pageview');
+			script.
+				var _sf_async_config = { uid: #{chartbeat_property}, domain: '#{chartbeat_domain}', useCanonical: true };
+				(function() {
+					function loadChartbeat() {
+						window._sf_endpt = (new Date()).getTime();
+						var e = document.createElement('script');
+						e.setAttribute('language', 'javascript');
+						e.setAttribute('type', 'text/javascript');
+						e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+						document.body.appendChild(e);
+					};
+					var oldonload = window.onload;
+					window.onload = (typeof window.onload != 'function') ?
+					loadChartbeat : function() { oldonload(); loadChartbeat(); };
+				})();

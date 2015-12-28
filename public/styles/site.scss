@@ -1,0 +1,40 @@
+// The easiest way to customise materialize variables while
+// being able to easily override the source files with new
+// versions is to override the ones you want in another file.
+//
+// You can also add your own custom variables to this file for
+// use in site stylesheets.
+
+@import "site/variables";
+
+// materialize
+// =========
+
+// materialize can be removed entirely by deleting this line.
+
+@import "../../node_modules/materialize-css/sass/materialize";
+
+
+// Site Styles
+// ===========
+
+// Add your own site style includes here
+@import "site/layout";
+
+.primarycolorlighten1{
+  @extend $primary-color, .lighten-1;
+}
+
+.primarycolorlighten2{
+  @extend $primary-color, .lighten-2;
+}
+
+.primarycolorlighten3{
+  @extend $primary-color, .lighten-3;
+}
+
+.primarycolorlighten4{
+  @extend $primary-color, .lighten-4;
+}
+
+
