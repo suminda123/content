@@ -19,6 +19,9 @@ exports = module.exports = function (req, res) {
 		});
 
 		q.exec(function (err, result) {
+			if (!result)
+				result=new Home.model();
+
 			locals.home = result;
 			next(err);
 		});

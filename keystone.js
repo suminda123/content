@@ -1,4 +1,5 @@
 // Load .env for development environments
+//console.log(process.env, "before");
 require('dotenv').load();
 
 var keystone = require('keystone');
@@ -6,6 +7,8 @@ var keystone = require('keystone');
 /**
  * Application Initialisation
  */
+
+//console.log(process.env, "after");
 
 keystone.init({
 
@@ -20,8 +23,8 @@ keystone.init({
 	'view engine': 'jade',
 
 	'auto update': true,
-	'mongo': CMONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/endevcms',
-	'cloudinary config': CLOUDINARY_URL || process.env.CLOUDINARY_URL,
+	'mongo': process.env.MONGOLAB_URI || 'mongodb://localhost/endevcms',
+	'cloudinary config': process.env.CLOUDINARY_URL,
 	'session': true,
 	'auth': true,
 	'user model': 'User',

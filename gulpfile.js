@@ -23,6 +23,14 @@ var paths = {
         src: './node_modules/materialize-css/dist/js/**/*',
         output: './public/js/lib/materialize'
     },
+    'materialize_components_sass': {
+        src: './node_modules/materialize-css/sass/components/**/*',
+        output: './public/styles/materialize/sass/components/'
+    },
+    'materialize_sass': {
+        src: './node_modules/materialize-css/sass/materialize.scss',
+        output: './public/styles/materialize/sass/'
+    },
 
 };
 
@@ -49,6 +57,17 @@ gulp.task('sass', function(){
         .pipe(gulp.dest(paths.style.output));
 });
 
+gulp.task('materialize_sass', function() {
+    return gulp.src(paths.materialize_sass.src)
+        .pipe(gulp.dest(paths.materialize_sass.output))
+});
+
+gulp.task('materialize_components_sass', function() {
+    return gulp.src(paths.materialize_components_sass.src)
+        .pipe(gulp.dest(paths.materialize_components_sass.output))
+});
+
+
 gulp.task('fonts', function() {
     return gulp.src(paths.fonts.src)
         .pipe(gulp.dest(paths.fonts.output))
@@ -67,4 +86,6 @@ gulp.task('watch', [
     'watch:lint'
 ]);
 
-gulp.task('default', ['fonts', 'materialize', 'watch', 'runKeystone']);
+gulp.task('build', ['materialize_sass', 'materialize_components_sass', 'fonts', 'materialize']);
+
+gulp.task('default', ['build', 'watch', 'runKeystone']);
